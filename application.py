@@ -34,18 +34,18 @@ def create_doc():
                data['placeHolder'], file_name)
 
     # Upload the .docx file to Firebase Storage
-    bucket = storage.bucket()
-    blob = bucket.blob(file_name)
-    with open(file_name, "rb") as file:
-        blob.upload_from_file(file)
-        blob.make_public()
+    # bucket = storage.bucket()
+    # blob = bucket.blob(file_name)
+    # with open(file_name, "rb") as file:
+    #     blob.upload_from_file(file)
+    #     blob.make_public()
 
     # Delete the .docx file from the local system
-    os.remove(file_name)
+    # os.remove(file_name)
 
-    download_url = blob.public_url
+    # download_url = blob.public_url
 
-    return jsonify({"message": f"File {file_name} uploaded successfully.", "download_url": download_url}), 200
+    return jsonify({"message": f"File {file_name} uploaded successfully.", "download_url": "soon"}), 200
 
 
 if __name__ == '__main__':

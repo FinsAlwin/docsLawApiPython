@@ -22,12 +22,14 @@ class DocCreator:
         self.pet_title = WordProcessor.getDocx(
             'template/pet_title.docx')
 
-        self.vakalatnama = WordProcessor.getDocx(
-            'template/vakalatnama.docx')
+        # self.vakalatnama = WordProcessor.getDocx(
+        #     'template/vakalatnama.docx')
 
         table_index = self.index.tables[1]
-        for item in indexList:
-            DocxEditor.add_index_table_row(table_index, ["\u2022", item, " "])
+        for i, item in enumerate(indexList, start=1):
+            DocxEditor.add_index_table_row(table_index, [str(i), item, " "])
+        # for item in indexList:
+        #     DocxEditor.add_index_table_row(table_index, ["\u2022", item, " "])
 
         WordProcessor.addToDocx(self.index, self.dest_doc)
 
@@ -51,9 +53,9 @@ class DocCreator:
 
         WordProcessor.addToDocx(self.pet_title, self.dest_doc)
 
-        WordProcessor.addPageBreak(self.dest_doc)  # page break
+        # WordProcessor.addPageBreak(self.dest_doc)  # page break
 
-        WordProcessor.addToDocx(self.vakalatnama, self.dest_doc)
+        # WordProcessor.addToDocx(self.vakalatnama, self.dest_doc)
 
         DocxEditor.replace_placeholders(self.dest_doc, placeholderList)
 

@@ -1,0 +1,10 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - pip install -r requirements.txt
+  build:
+    commands:
+      - export FLASK_APP=application.py
+      - flask run &

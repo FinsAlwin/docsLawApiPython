@@ -8,6 +8,6 @@
   "env": {
     "FLASK_ENV": "production",
     "FLASK_APP": "application.py",
-    "PORT": 8080
+    "PORT": "8080"
   }
 }

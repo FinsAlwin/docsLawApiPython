@@ -59,4 +59,4 @@ class DocCreator:
 
         DocxEditor.replace_placeholders(self.dest_doc, placeholderList)
 
-        # WordProcessor.saveTolocal(self.dest_doc, file_name)
+        WordProcessor.saveTolocal(self.dest_doc, file_name)

@@ -1,0 +1,13 @@
+{
+  "builds": [
+    { "src": "application.py", "use": "@now/python" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/application.py" }
+  ],
+  "env": {
+    "FLASK_ENV": "production",
+    "FLASK_APP": "application.py",
+    "PORT": 8080
+  }
+}

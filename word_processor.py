@@ -6,6 +6,9 @@ from docx.table import Table
 from docx.text.paragraph import Paragraph
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from docx.shared import Pt, RGBColor
+import base64
+from io import BytesIO
+from openpyxl import load_workbook
 
 
 class WordProcessor:
@@ -34,6 +37,21 @@ class WordProcessor:
 
     def saveTolocal(self, dest_doc, name):
         dest_doc.save(name)
+
+    def getBase64(self, dest_doc):
+        doc_bytes = BytesIO()
+        dest_doc.save(doc_bytes)
+        doc_bytes = doc_bytes.getvalue()
+        doc_base64 = base64.b64encode(doc_bytes)
+        return doc_base64.decode('utf-8')
+
+    def getDocxBlob(self, docx_doc):
+        # Save the document to a BytesIO object
+        doc_bytes = BytesIO()
+        docx_doc.save(doc_bytes)
+        doc_bytes = doc_bytes.getvalue()
+
+        return doc_bytes
 
 
 class DocxEditor:
